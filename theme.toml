@@ -1,11 +1,18 @@
 name = "hardcover"
 license = "MIT"
-licenselink = "https://github.com/"
+licenselink = "https://github.com/gcushen/hugo-academic/blob/master/LICENSE.md"
 description = "Minimalist theme for Hugo."
 homepage = "https://github.com/alexander-e/hardcover"
-tags = ["minimalist", "reading", "sepia", "academic"]
-features = ["blog"]
-min_version = 0.15
+tags = ["minimalist",
+        "academic",
+        "cv",
+        "university",
+        "minimal"]
+features = ["academic profile",
+            "blog",
+            "publication list"
+            "contact"]
+min_version = 0.17
 
 [author]
 name = "Alexander Erreygers"
