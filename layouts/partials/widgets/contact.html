@@ -1,0 +1,38 @@
+{{ $ := .root }}
+{{ $page := .page }}
+
+<h2>{{ with $page.Title }}{{ . | markdownify }}{{ end }}</h2>
+
+{{ with $page.Content }}<p>{{ . | markdownify }}</p>{{ end }}
+
+<p>{{ $.Site.Params.Author }}
+{{ with $page.Params.address }}
+  {{ range . }}
+    <br>
+    {{ . | markdownify }}
+  {{ end }}
+{{ end }}
+{{ with $page.Params.telephone }}<br>{{ . }}{{ end }}
+{{ with $page.Params.email }}
+  {{ if $page.Params.mailto }}
+    <br><a href={{ printf "mailto:%s" . }}>{{ . }}</a>
+  {{ else }}
+    <br>{{ . | markdownify }}
+  {{ end }}
+{{ end }}
+</p>
+
+{{ if $.Site.Params.SocialLinks }}
+  <div class="contact-social">
+    <!-- ORCiD logo -->
+    {{ with $.Site.Params.ORCiD }}<a href="{{ printf "https://orcid.org/%s" . }}" class="social">{{ partial "social/orcid.html" }}</a> {{ end }}
+    <!-- Researchgate Logo -->
+    {{ with $.Site.Params.ResearchGate }}<a href="{{ printf "https://www.researchgate.net/profile/%s" . }}" class="social">{{ partial "social/researchgate.html" }}</a> {{ end }}
+    <!-- Google scholar Logo -->
+    {{ with $.Site.Params.GoogleScholar }}<a href="{{ printf "https://scholar.google.com/citations?user=%s" . }}" class="social">{{ partial "social/googlescholar.html" }}</a> {{ end }}
+    <!-- LinkedIn Logo -->
+    {{ with $.Site.Params.LinkedIn }}<a href="{{ printf "https://www.linkedin.com/in/%s" . }}" class="social">{{ partial "social/linkedin.html" }}</a> {{ end }}
+    <!-- Github Logo -->
+    {{ with $.Site.Params.Github }}<a href="{{ printf "https://github.com/%s" . }}" class="social">{{ partial "social/github.html" }}</a> {{ end }}
+  </div>
+{{ end }}

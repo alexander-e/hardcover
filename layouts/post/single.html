@@ -1,24 +1,21 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.LanguageCode }}">
 
-  {{ partial "head.html" . }}
+{{ partial "head.html" . }}
 
-  <body>
+<body>
+    {{ partial "header.html" . }}
+
     <div class="container">
-
-      {{ partial "header.html" . }}
-
       <article>
         {{ .Content }}
       </article>
 
-      {{ partial "nav.html" . }}
-
-      {{ partial "footer.html" . }}
-
     </div>
 
-  {{ partial "highlight" . }}
+    {{ partial "section_pager.html" . }}
 
-  </body>
+    {{ partial "footer.html" . }}
+
+</body>
 </html>

@@ -1,0 +1,21 @@
+<li>
+  <!-- Authors -->
+  {{ with .Params.authors }}<span class="pub-authors">{{ delimit . ", " " &amp; "}}</span>{{ end }}.
+  <!-- Title -->
+  &ldquo;<span class="pub-title">{{ .Title }}</span>&rdquo;.
+  <!-- Journal -->
+  Presented at the
+  {{ if and .Params.event_short .Params.event_link }}
+    <span class="pub-journal">{{.Params.event }} (<a href="{{ .Params.event_link | absURL }}">{{ .Params.event_short }}</a>)</span>,
+  {{ else if .Params.event_link }}
+    <span class="pub-journal"><a href="{{ .Params.event_link | absURL }}">{{.Params.event }}</a></span>,
+  {{ else }}
+    <span class="pub-journal">{{.Params.event }} ({{ .Params.event_short }})</span>,
+  {{ end }}
+  <!-- Date -->
+  <span class="pub-date">{{ dateFormat "2/1/2006" .Date }}</span>.
+  <!-- Note, if any -->
+  {{ with .Params.note }}<span class="pub-note">{{ . | markdownify }}.</span>{{ end }}
+  <!--- Links -->
+  {{ partial "publinks.html" (dict "content" . "link_det" true ) }}
+</li>

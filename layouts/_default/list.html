@@ -1,0 +1,22 @@
+{{ partial "head.html" . }}
+{{ partial "header.html" . }}
+
+{{ $paginator := .Paginate .Data.Pages }}
+{{ range $paginator.Pages }}
+  <article>
+    <header>
+      <h3 class="article-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+    </header>
+      {{ if .Params.summary }}
+        {{ printf "%s" .Params.summary | markdownify }}
+      {{ else if .Truncated }}
+        {{ printf "%s" .Summary | markdownify }}
+      {{ end }}
+  </article>
+{{ end }}
+
+{{ partial "pagination" . }}
+
+{{ partial "totop.html" . }}
+
+{{ partial "footer.html" . }}

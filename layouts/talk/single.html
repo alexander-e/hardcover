@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+
+{{ partial "head.html" . }}
+
+<body>
+    {{ partial "header-pub.html" . }}
+
+    <div class="container">
+      <h1>{{ .Title }}</h1>
+      <p class="pub-author">{{ with .Params.authors }}{{ delimit . ", " " and " }}{{ end }}</p>
+
+      {{ with .Params.abstract }}
+        <h4>Abstract</h4>
+        <p class="pub-abstract">{{ . | markdownify }}</p>
+      {{ end }}
+
+      <p>
+        Presented at the
+        {{ if and .Params.event_short .Params.event_link }}
+          <span class="pub-journal">{{.Params.event }} (<a href="{{ .Params.event_link | absURL }}">{{ .Params.event_short }}</a>)</span>,
+        {{ else if .Params.event_link }}
+          <span class="pub-journal"><a href="{{ .Params.event_link | absURL }}">{{.Params.event }}</a></span>,
+        {{ else }}
+          <span class="pub-journal">{{.Params.event }} ({{ .Params.event_short }})</span>,
+        {{ end }}
+        <!-- Date -->
+        <span class="pub-date">{{ dateFormat "2/1/2006" .Date }}</span>.
+      </p>
+      <!-- Note, if any -->
+      {{ with .Params.note }}<span class="pub-note">{{ . | markdownify }}.</span>{{ end }}
+
+      <p>{{ partial "publinks.html" (dict "content" . "link_det" false ) }}</p>
+
+      <p>{{ .Content | markdownify }}</p>
+
+    </div>
+
+  {{ partial "section_pager.html" . }}
+
+  {{ partial "footer.html" . }}
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+{{ if or (.Paginator.HasPrev) (.Paginator.HasNext) }}
+	<nav>
+	  <ul class="pager">
+	    {{ if .Paginator.HasPrev }}
+	      <li class="previous"><a href="{{.PrevInSection.Permalink}}"><span aria-hidden="true">&larr;</span> Previous</a></li>
+	    {{end}}
+	    {{ if .Paginator.HasNext }}
+	      <li class="next"><a href="{{.NextInSection.Permalink}}">Next <span aria-hidden="true">&rarr;</span></a></li>
+	    {{end}}
+	  </ul>
+	</nav>
+{{ end }}

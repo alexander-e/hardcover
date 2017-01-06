@@ -1,14 +1,13 @@
-# Paperback
+# Hardcover
 
-_Paperback_ is a minimalist theme for [Hugo](http://gohugo.io).
+_Hardcover_ is a theme for [Hugo](http://gohugo.io).
 
-It focuses on improving reading experience with high contrast colors and no fancy effect.
-
-It also uses [Highlight.js](https://highlightjs.org/) for the syntaxic coloration of code snippets.
+It is a combination of the [Paperback]() and [Academic]() Hugo themes built to suit my needs.
+It has the same reading experience with high contrast colors as the Paperback theme, while incorporating the features of the Academic theme that are relevant to someone in academia.
 
 ## Installation
 
-Please refer to the [Hugo documentation](http://gohugo.io/themes/installing/).
+Instructions on how to install a theme can be found in the [Hugo documentation](http://gohugo.io/themes/installing/).
 
 ## Configuration
 
@@ -19,28 +18,10 @@ A few parameters can be adjusted in the site config:
 
 # your name to display by the copyright sign
 # default: undefined
-AuthorName = "Firstname Lastname"
+Author = "Firstname Lastname"
 
-# tagline to show beneath homepage h1
-# default: undefined
-Tagline = "Hello, world!"
-
-# number of posts to show on index
-# default: 10
-HomepagePosts = 3
-
-# if set to true, social links will be displayed in the footer
+# if set to true, social links will be displayed in the footer and on the contact page
 # default: undefined
 SocialLinks = true
 
-# default: undefined
-GithubUsername = "damiencaselli"
-
-# default: undefined
-TwitterUsername = "damiencaselli"
 ```
-
-### Code highlighting
-
-Both highlight theme and lib can be overridden. Just drop your build in the `static/js` directory, and the theme file in the `static/css` directory.  
-Note that the theme has to be named `highlight.css`.

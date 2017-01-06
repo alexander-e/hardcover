@@ -1,0 +1,23 @@
+{{ partial "head.html" . }}
+{{ partial "header.html" . }}
+<div class="container">
+
+  <article class="article">
+
+    {{ if .Params.image }}
+      <img src="{{ $.Site.BaseURL }}img/{{ .Params.image }}" class="article-banner" alt="{{ .Title }}">
+    {{end}}
+
+    <h2 itemprop="name">{{ .Title }}</h2>
+
+    {{ partial "article_metadata" (dict "content" . "is_list" 0) }}
+
+    <div class="article-style" itemprop="articleBody">
+      {{ .Content }}
+    </div>
+
+  </article>
+</div>
+
+{{ partial "section_pager.html" . }}
+{{ partial "footer.html" . }}

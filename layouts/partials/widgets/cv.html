@@ -1,0 +1,83 @@
+{{ $page := .page }}
+
+<!-- CV widget -->
+<h2>{{ title $page.Title }}</h2>
+{{ with $page.Params.subtitle }}<p>{{ . | markdownify }}</p>{{ end }}
+
+{{ with $page.Content }}<p>{{ . | markdownify }}</p>{{ end }}
+
+{{ with $page.Params.work }}
+  <h3>Working experience</h3>
+  {{ if .intro }}
+    <p>{{ .intro | markdownify }}</p>
+  {{ end }}
+  {{ range .experience }}
+    <div class=cv-container>
+      <div class="cv-right">
+        <span class="cv-date">{{ .start}} &ndash; {{ .finish }}</span>
+      </div>
+      <div class="cv-left">
+        <span class="cv-title">{{ .title }}</span> at {{ .organization | markdownify }}.
+        {{ with .explanation }}
+          <div class="cv-left">
+            {{ . | markdownify }}
+          </div>
+        {{ end }}
+      </div>
+    </div>
+  {{ end }}
+  {{ if .outro }}
+    <p>{{ .outro | markdownify }}</p>
+  {{ end }}
+{{ end }}
+
+
+{{ with $page.Params.teach }}
+  <h3>Teaching</h3>
+  {{ if .intro }}
+    <p>{{ .intro | markdownify }}</p>
+  {{ end }}
+  <div class=cv-container>
+    {{ range .courses }}
+      <div class="cv-right">
+        <span class="cv-date">{{ .start}} &ndash; {{ .finish }}</span>
+      </div>
+      <div class="cv-left">
+        <span class="cv-title">{{ .course }}</span>
+        {{ with .info }}
+          <div class="cv-left">
+            {{ . | markdownify }}
+          </div>
+        {{ end }}
+      </div>
+    {{ end }}
+  </div>
+  {{ if .outro }}
+    <p>{{ .outro | markdownify }}</p>
+  {{ end }}
+{{ end }}
+
+{{ with $page.Params.education }}
+  <h3>Education</h3>
+  {{ if .intro }}
+    <p>{{ .intro | markdownify }}</p>
+  {{ end }}
+  {{ range .courses }}
+    <div class=cv-container>
+      <div class="cv-right">
+        <span class="cv-date">{{ .start}} &ndash; {{ .finish }}</span>
+      </div>
+      <div class="cv-left">
+        <span class="cv-title">{{ .course }}</span> at {{ .institution | markdownify }}.
+        {{ with .info }}
+          <div class="cv-left">
+            {{ . | markdownify }}
+          </div>
+        {{ end }}
+      </div>
+    </div>
+  {{ end }}
+  {{ if .outro }}
+    <p>{{ .outro | markdownify }}</p>
+  {{ end }}
+{{ end }}

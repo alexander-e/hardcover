@@ -1,0 +1,15 @@
+<li>
+  <!-- Authors -->
+  {{ with .Params.authors }}<span class="pub-authors">{{ delimit . ", " " &amp; " }}</span>{{ end }}.
+  <!-- Title -->
+  &ldquo;<span class="pub-title">{{ .Title }}</span>&rdquo;.
+  <!-- Journal -->
+  In <span class="pub-journal">{{ .Params.publication | markdownify}}</span>,
+  <!-- Pagination -->
+  <!-- Date -->
+  <span class="pub-date">{{ dateFormat "Jan. 2006" .Date }}</span>.
+  <!-- Note, if any -->
+  {{ with .Params.note }}<span class="pub-note">{{ . | markdownify }}.</span>{{ end }}
+  <!-- Links -->
+  {{ partial "publinks.html" (dict "content" . "link_det" true ) }}
+</li>

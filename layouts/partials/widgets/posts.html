@@ -1,0 +1,23 @@
+{{ $ := .root }}
+{{ $page := .page }}
+{{ $total_posts_len := len (where $.Data.Pages "Type" "post") }}
+{{ $posts_len := len (where (where $.Data.Pages "Type" "post") ".Params.notonhomepage" nil) }}
+
+<!-- Blog Posts widget -->
+<h2>{{ $page.Title | markdownify }}</h2>
+{{ with $page.Params.subtitle }}<p>{{ . | markdownify }}</p>{{ end }}
+
+
+{{ if gt $posts_len $page.Params.count }}
+<p class="view-all">
+  <a href="{{ "/post/" | relURL }}">
+    All posts
+  </a>
+</p>
+{{ end }}
+
+{{ with $page.Content }}<p>{{ . | markdownify }}</p>{{ end }}
+
+{{ range first $page.Params.count (where (where $.Data.Pages "Type" "post") ".Params.notonhomepage" nil) }}
+{{ .Render "li" }}
+{{ end }}

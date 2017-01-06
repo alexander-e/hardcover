@@ -10,14 +10,3 @@
     </a>
   {{ end }}
 </nav>
-
-<header>
-  {{ if ne .IsNode true }}
-  <h1>{{ .Title }}</h1>
-  <time datetime="{{ .Date }}">{{ dateFormat "02/01/2006" .Date }}</time>
-  {{ end }}
-
-<!--   {{ if and .IsHome (isset .Site.Params "Tagline") }}
-  <p>{{ .Site.Params.Tagline }}</p>
-  {{ end }} -->
-</header>

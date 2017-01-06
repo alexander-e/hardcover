@@ -1,0 +1,59 @@
+{{ $ := .root }}
+{{ $page := .page }}
+{{ $journals_len := len (where $.Data.Pages "Type" "journal") }}
+{{ $proceedings_len := len (where $.Data.Pages "Type" "proceeding") }}
+{{ $talks_len := len (where $.Data.Pages "Type" "talk") }}
+{{ $wips_len := len (where $.Data.Pages "Type" "wip") }}
+
+<!-- Publications widget -->
+<h2>{{ with $page.Title }}{{ . | markdownify }}{{ end }}</h2>
+
+{{ with .page.Content }}<p>{{ . | markdownify }}</p>{{ end }}
+
+{{ if $journals_len }}
+  <h3 class="post-title"><a href ="{{ "/journal/" | relURL }}">Journal articles</a></h3>
+  <ol class="publications">
+    {{ range first $page.Params.max (where $.Data.Pages "Type" "journal") }}
+      {{ .Render "li_simple" }}
+    {{ end }}
+    {{ if gt $journals_len $page.Params.max }}
+      <li>a href ="{{ "/journal/" | relURL }}">View all</li>
+    {{ end }}
+  </ol>
+{{ end }}
+
+{{ if $proceedings_len }}
+  <h3 class="post-title"><a href ="{{ "/proceeding/" | relURL }}">Articles in conference proceedings</a></h3>
+  <ol class="publications">
+    {{ range where $.Data.Pages "Type" "proceeding" }}
+      {{ .Render "li_simple" }}
+    {{ end }}
+    {{ if gt $proceedings_len $page.Params.max }}
+      <li>a href ="{{ "/proceeding/" | relURL }}">View all</li>
+    {{ end }}
+  </ol>
+{{ end }}
+
+{{ if $talks_len }}
+  <h3 class="post-title"><a href ="{{ "/talk/" | relURL }}">Posters and presentations</a></h3>
+  <ol class="publications">
+    {{ range where $.Data.Pages "Type" "talk" }}
+      {{ .Render "li_simple" }}
+    {{ end }}
+    {{ if gt $talks_len $page.Params.max }}
+      <li>a href ="{{ "/talk/" | relURL }}">View all</li>
+    {{ end }}
+  </ol>
+{{ end }}
+
+{{ if $wips_len }}
+  <h3 class="post-title"><a href ="{{ "/wip/" | relURL }}" class="post-title">Work in progress</a></h3>
+  <ol class="publications">
+    {{ range (where $.Data.Pages "Type" "wip") }}
+      {{ .Render "li_simple" }}
+    {{ end }}
+    {{ if gt $wips_len $page.Params.max }}
+      <li>a href ="{{ "/wip/" | relURL }}">View all</li>
+    {{ end }}
+  </ol>
+{{ end }}

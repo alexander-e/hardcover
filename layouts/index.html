@@ -4,26 +4,20 @@
   {{ partial "head.html" . }}
 
   <body>
-    <div class="container">
-
       {{ partial "header.html" . }}
 
-      <section>
-
-        {{ range first (index .Site.Params "HomepagePosts" | default 3) (where .Data.Pages "Type" "post") }}
-        <article>
-          {{ .Render "list-item-expanded" }}
-        </article>
+      <div class="container">
+        <!-- Widgets -->
+        {{ range $index, $page := where .Data.Pages "Type" "home" }}
+          {{ $params := dict "root" $ "page" $page }}
+          {{ $widget := printf "widgets/%s.html" ( or $page.Params.widget "custom" ) }}
+          <section id="{{ $page.File.BaseFileName }}">
+            {{ partial $widget $params }}
+          </section>
+          {{ partial "totop.html" }}
         {{ end }}
-
-      </section>
-
-      {{ partial "nav.html" . }}
+      </div>
 
       {{ partial "footer.html" . }}
-
-    </div>
-
-  {{ partial "highlight" . }}
   </body>
 </html>

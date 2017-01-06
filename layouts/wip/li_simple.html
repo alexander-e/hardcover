@@ -1,0 +1,12 @@
+<li>
+  <!-- Authors -->
+  <span class="pub-authors">{{ with .Params.authors }}{{ delimit . ", " " &amp; "}}</span>{{ end }}.
+  <!-- Title -->
+  &ldquo;<span class="pub-title">{{ .Title }}</span>&rdquo;.
+  <!-- Note, if any -->
+  {{ with .Params.note }}<span class="pub-note">{{ . | markdownify }}.</span>{{ end }}
+  <!--- Links -->
+  {{ if or .Params.preprint .Params.url_pdf }}
+    {{ partial "publinks.html" (dict "content" . "link_det" false) }}
+  {{ end }}
+</li>

@@ -1,0 +1,42 @@
+<ul class="pub-links">
+	{{ if .link_det }}
+		<li><a href="{{ .content.Permalink }}">
+			details
+		</a></li>
+	{{ end }}
+	{{ with .content.Params.url_pdf }}
+		<li><a href="{{ . | absURL }}">
+		  .pdf
+		</a></li>
+	{{ end }}
+	{{ with .content.Params.preprint }}
+		<li><a href="{{ . | absURL }}">
+		  preprint.pdf
+		</a></li>
+	{{ end }}
+	{{ with .content.Params.pdf_abstract }}
+		<li><a href="{{ . | absURL }}">
+		  abstract.pdf
+		</a></li>
+	{{ end }}
+	{{ with .content.Params.pdf_slides }}
+		<li><a href="{{ . | absURL }}">
+		  slides.pdf
+		</a></li>
+	{{ end }}
+	{{ with .content.Params.pdf_poster }}
+		<li><a href="{{ . | absURL }}">
+		  poster.pdf
+		</a></li>
+	{{ end }}
+	{{ with .content.Params.doi }}
+		<li><a href="{{ printf "https://dx.doi.org/%s" . }}">
+		  doi:{{ . }}
+		</a></li>
+	{{ end }}
+	{{ with .content.Params.hdl }}
+		<li><a href="{{ printf "https://hdl.handle.net/%s" . }}">
+		  hdl:{{ . }}
+		</a></li>
+	{{ end }}
+</ul>

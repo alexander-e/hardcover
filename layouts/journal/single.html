@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+
+{{ partial "head.html" . }}
+
+<body>
+    {{ partial "header-pub.html" . }}
+
+    <div class="container">
+      <h1>{{ .Title }}</h1>
+      {{ with .Params.authors }}<p class="pub-authors">{{ delimit . ", " " and " }}</p>{{ end }}
+
+      <h4>Abstract</h4>
+      <p class="pub-abstract">{{ .Params.abstract | markdownify }}</p>
+
+      <p>
+        <!-- Journal -->
+        <span class="pub-journal">{{ .Params.publication | markdownify}}</span>,
+        <!-- Pagination -->
+        <!-- Date -->
+        <span class="pub-date">{{ dateFormat "Jan. 2006" .Date }}</span>.
+      </p>
+
+      <p>{{ partial "publinks.html" (dict "content" . "link_det" false) }}</p>
+
+      {{ .Content | markdownify }}
+  </div>
+
+  {{ partial "section_pager.html" . }}
+
+  {{ partial "footer.html" . }}
+</body>
+</html>

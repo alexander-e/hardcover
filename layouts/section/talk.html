@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+
+  {{ partial "head.html" . }}
+
+  <body>
+
+    <div class="container">
+
+      {{ partial "header.html" . }}
+
+      <h1>Posters and presentations</h1>
+
+      <ol>
+      {{ range (where .Data.Pages "Type" "talk") }}
+        {{ .Render "li_simple" }}
+      {{ end }}
+      </ol>
+
+      {{ partial "totop.html" . }}
+
+      {{ partial "footer.html" . }}
+
+    </div>
+
+  </body>
+</html>
