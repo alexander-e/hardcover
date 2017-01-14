@@ -5,29 +5,39 @@
 		</a></li>
 	{{ end }}
 	{{ with .content.Params.url_pdf }}
-		<li><a href="{{ . | absURL }}">
+		<li><a href="{{ . | relURL }}">
 		  .pdf
 		</a></li>
 	{{ end }}
-	{{ with .content.Params.preprint }}
+	{{ with .content.Params.url_preprint }}
+		<li><a href="{{ . | relURL }}">
+		  preprint.pdf
+		</a></li>
+	{{ end }}
+	{{ with .content.Params.ext_preprint }}
 		<li><a href="{{ . | absURL }}">
 		  preprint.pdf
 		</a></li>
 	{{ end }}
 	{{ with .content.Params.pdf_abstract }}
-		<li><a href="{{ . | absURL }}">
+		<li><a href="{{ . | relURL }}">
 		  abstract.pdf
 		</a></li>
 	{{ end }}
 	{{ with .content.Params.pdf_slides }}
-		<li><a href="{{ . | absURL }}">
+		<li><a href="{{ . | relURL }}">
 		  slides.pdf
 		</a></li>
 	{{ end }}
 	{{ with .content.Params.pdf_poster }}
-		<li><a href="{{ . | absURL }}">
+		<li><a href="{{ . | relURL }}">
 		  poster.pdf
 		</a></li>
+	{{ end }}
+	{{ with .content.Params.code }}
+		<li><a href="{{ . | absURL }}">
+		  code
+		 </a></li>
 	{{ end }}
 	{{ with .content.Params.doi }}
 		<li><a href="{{ printf "https://dx.doi.org/%s" . }}">

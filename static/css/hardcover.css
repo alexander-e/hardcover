@@ -4,9 +4,9 @@
 }
 
 html {
-  font-family: Arvo, serif;
+  font-family: sans-serif;
   color: #303030;
-  background-color: #f5f5f0;
+  background-color: #f0f1f2;
   font-size: 1rem;
 }
 
@@ -41,7 +41,7 @@ blockquote cite {
 }
 
 blockquote cite:before {
-  content: "— "
+  content: "&endash; "
 }
 
 a {
@@ -91,6 +91,10 @@ kbd, code {
 
 article, section {
   margin-bottom: 1rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Ubuntu', sans-serif;
 }
 
 h1 {

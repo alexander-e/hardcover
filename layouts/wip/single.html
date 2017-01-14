@@ -10,7 +10,9 @@
       <h1>{{ .Title }}</h1>
       {{ with .Params.authors }}<p class="pub-authors">{{ delimit . ", " " and " }}</p>{{ end }}
 
-      <p>{{ partial "publinks.html" (dict "content" . "link_det" false) }}</p>
+      {{ if .Params.has_links}}
+      	<p>{{ partial "publinks.html" (dict "content" . "link_det" false) }}</p>
+      {{ end }}
 
       {{ .Content | markdownify }}
   	</div>
