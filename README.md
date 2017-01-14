@@ -15,27 +15,23 @@ A few parameters can be adjusted in the site config:
 
 ```toml
 [Params]
-Author = "Author Name"
+Author = "Name Surname"
 
 # Social accounts
 #  Set to true if you want to add social links
 SocialLinks = true
 #  Give the relevant account names
-Github = "auth"
+Github = "alexander-e"
 ORCiD = "0000-0000-0000-0000"
-ResearchGate = "Author_Name"
-LinkedIn = "author_name"
+ResearchGate = ""
+LinkedIn = ""
 GoogleScholar = ""
 
-# Enable the Arvo font?
+# Enable the Ubuntu font?
 fancyfont = "true"
 
-# Navigation Links
-#   To link a homepage widget, specify the URL as a hash `#` followed by the filename of the
-#     desired widget in your `content/home/` folder.
-#   The weight parameter defines the order that the links will appear in.
-
 ```
+The links that are displayed in the header can also be adjusted in the site config. 
 
 ## Publication list
 
@@ -46,3 +42,5 @@ Currently, four types of scientific outputs are supported by four content types:
 2. articles in conference proceedings (proceeding),
 3. posters and presentations (talk) and
 4. work in progress (wip).
+
+Note that currently, the page reference of the journal and proceeding entries are not finished yet. I will finish them in the future, just let me know if you need it (or fix it yourself and send this repository a push request).
