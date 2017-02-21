@@ -4,13 +4,18 @@
 			details
 		</a></li>
 	{{ end }}
-	{{ with .content.Params.url_pdf }}
+	{{ with .content.Params.ext_pdf }}
 		<li><a href="{{ . | relURL }}">
 		  .pdf
 		</a></li>
 	{{ end }}
-	{{ with .content.Params.url_preprint }}
-		<li><a href="{{ . | relURL }}">
+	{{ with .content.Params.pdf }}
+		<li><a href="{{ printf "pdf/%s" . }}">
+		  .pdf
+		</a></li>
+	{{ end }}
+	{{ with .content.Params.pdf_preprint }}
+		<li><a href="{{ printf "pdf/%s" . }}">
 		  preprint.pdf
 		</a></li>
 	{{ end }}
@@ -20,17 +25,17 @@
 		</a></li>
 	{{ end }}
 	{{ with .content.Params.pdf_abstract }}
-		<li><a href="{{ . | relURL }}">
+		<li><a href="{{ printf "pdf/%s" . }}">
 		  abstract.pdf
 		</a></li>
 	{{ end }}
 	{{ with .content.Params.pdf_slides }}
-		<li><a href="{{ . | relURL }}">
+		<li><a href="{{ printf "pdf/%s" . }}">
 		  slides.pdf
 		</a></li>
 	{{ end }}
 	{{ with .content.Params.pdf_poster }}
-		<li><a href="{{ . | relURL }}">
+		<li><a href="{{ printf "pdf/%s" . }}">
 		  poster.pdf
 		</a></li>
 	{{ end }}
@@ -40,13 +45,13 @@
 		 </a></li>
 	{{ end }}
 	{{ with .content.Params.doi }}
-		<li><a href="{{ printf "https://dx.doi.org/%s" . }}">
-		  doi:{{ . }}
+		<li>doi:<a href="{{ printf "https://dx.doi.org/%s" . }}">
+		  {{ . }}
 		</a></li>
 	{{ end }}
 	{{ with .content.Params.hdl }}
-		<li><a href="{{ printf "https://hdl.handle.net/%s" . }}">
-		  hdl:{{ . }}
+		<li>hdl:<a href="{{ printf "https://hdl.handle.net/%s" . }}">
+		  {{ . }}
 		</a></li>
 	{{ end }}
 </ul>
