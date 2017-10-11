@@ -13,16 +13,12 @@
   {{ end }}
   {{ range .experience }}
     <div class=cv-container>
-      <div class="cv-right">
+      <div class="cv-left">
+        <span class="cv-header"><span class="cv-title">{{ .title }}</span> at {{ .organization | markdownify }}.</span>
         <span class="cv-date">{{ .start}} &ndash; {{ .finish }}</span>
       </div>
       <div class="cv-left">
-        <span class="cv-title">{{ .title }}</span> at {{ .organization | markdownify }}.
-        {{ with .explanation }}
-          <div class="cv-left">
-            {{ . | markdownify }}
-          </div>
-        {{ end }}
+        <p>{{ .explanation | markdownify }}</p>
       </div>
     </div>
   {{ end }}
@@ -37,21 +33,18 @@
   {{ if .intro }}
     <p>{{ .intro | markdownify }}</p>
   {{ end }}
-  <div class=cv-container>
-    {{ range .courses }}
-      <div class="cv-right">
+  {{ range .courses }}
+    <div class=cv-container>
+      <div class="cv-left">
+        <span class="cv-header"><span class="cv-title">{{ .course }}</span></span>
         <span class="cv-date">{{ .start}} &ndash; {{ .finish }}</span>
       </div>
       <div class="cv-left">
-        <span class="cv-title">{{ .course }}</span>
-        {{ with .info }}
-          <div class="cv-left">
-            {{ . | markdownify }}
-          </div>
-        {{ end }}
+        <p>{{ .info | markdownify }}</p>
       </div>
-    {{ end }}
-  </div>
+      </div>
+    </div>
+  {{ end }}
   {{ if .outro }}
     <p>{{ .outro | markdownify }}</p>
   {{ end }}
@@ -64,16 +57,12 @@
   {{ end }}
   {{ range .courses }}
     <div class=cv-container>
-      <div class="cv-right">
+      <div class="cv-left">
+        <span class="cv-header"><span class="cv-title">{{ .course }}</span> at {{ .institution | markdownify }}.</span>
         <span class="cv-date">{{ .start}} &ndash; {{ .finish }}</span>
       </div>
       <div class="cv-left">
-        <span class="cv-title">{{ .course }}</span> at {{ .institution | markdownify }}.
-        {{ with .info }}
-          <div class="cv-left">
-            {{ . | markdownify }}
-          </div>
-        {{ end }}
+        <p>{{ .info | markdownify }}</p>
       </div>
     </div>
   {{ end }}

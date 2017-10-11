@@ -15,8 +15,10 @@
 
       <p>
         <!-- Journal -->
-        <span class="pub-journal">{{ .Params.publication | markdownify}}</span>,
+        In <span class="pub-journal">{{ .Params.publication | markdownify}}</span>,
         <!-- Pagination -->
+        {{ with .Params.page }} {{ printf "p. %s" . }}, {{ end }}
+        {{ with .Params.pages }} {{ printf "pp. %s" . }}, {{ end }}
         <!-- Date -->
         <span class="pub-date">{{ dateFormat "Jan. 2006" .Date }}</span>.
       </p>

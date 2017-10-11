@@ -95,6 +95,7 @@ article, section {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Ubuntu', sans-serif;
+  text-align: left;
 }
 
 h1 {
@@ -248,18 +249,26 @@ div.cv-right {
   margin: none;
 }
 
-.cv-date {
-  font-style: italic;
+.cv-header {
+  /*display: block;*/
+  float: left;
 }
 
 .cv-title {
   font-weight: bold;
 }
 
+.cv-date {
+  font-style: italic;
+  font-size: .9rem;
+  float: right;
+}
+
 div.cv-left {
   width: 100%;
   text-align: left;
   margin: none;
+  clear: both;
 }
 
 ul.pub-links {
@@ -286,6 +295,13 @@ ul.pub-links {
 
 .pub-journal {
   font-style: italic;
+}
+
+p.pub-note {
+  font-size: .8rem;
+  text-align: left;
+  text-indent: 1rem;
+  margin: 0 0 0;
 }
 
 div.totop {

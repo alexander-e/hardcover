@@ -4,7 +4,7 @@
   <!-- Title -->
   &ldquo;<span class="pub-title">{{ .Title }}</span>&rdquo;.
   <!-- Note, if any -->
-  {{ with .Params.note }}<span class="pub-note">{{ . | markdownify }}.</span>{{ end }}
+  {{ with .Params.note }}<p class="pub-note">{{ . | markdownify }}.</p>{{ end }}
   <!--- Links -->
   {{ if or .Params.link_det .Params.has_links }}
     {{ partial "publinks.html" (dict "content" . "link_det" .Params.link_det) }}
