@@ -12,8 +12,9 @@ html {
 
 body {
   line-height: 1.5;
-  width: 600px;
+  max-width: 600px;
   margin: 0px auto 0px auto;
+  padding: 0em 1em;
 }
 
 div.content {
