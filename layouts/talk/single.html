@@ -10,11 +10,6 @@
       <h1>{{ .Title }}</h1>
       <p class="pub-author">{{ with .Params.authors }}{{ delimit . ", " " and " }}{{ end }}</p>
 
-      {{ with .Params.abstract }}
-        <h4>Abstract</h4>
-        <p class="pub-abstract">{{ . | markdownify }}</p>
-      {{ end }}
-
       <p>
         Presented at the
         {{ if and .Params.event_short .Params.event_link }}
@@ -32,7 +27,7 @@
 
       <p>{{ partial "publinks.html" (dict "content" . "link_det" false ) }}</p>
 
-      <p>{{ .Content | markdownify }}</p>
+      {{ .Content }}
 
     </div>
 

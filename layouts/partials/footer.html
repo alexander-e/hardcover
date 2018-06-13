@@ -1,5 +1,5 @@
 <footer class="site-footer">
-  <p style="text-align:left">&copy; 2017 {{ .Site.Params.Author }}
+  <p style="text-align:left">&copy; {{ .Site.Params.Author }}
   {{ if .Site.Params.SocialLinks }}
     <!-- ORCiD logo -->
   	{{ with .Site.Params.ORCiD }}&middot; <a href="{{ printf "https://orcid.org/%s" . }}" class="social">{{ partial "social/orcid.html" }}</a> {{ end }}

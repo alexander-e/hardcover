@@ -9,54 +9,26 @@
 		  .pdf
 		</a></li>
 	{{ end }}
-	{{ with .content.Params.pdf }}
-		<li><a href="{{ printf "pdf/%s" . | absURL }}">
-		  .pdf
-		</a></li>
+	{{ range .content.Resources }}
+		<li><a href="{{ .RelPermalink }}">
+			{{ .Name }}
+	</a></li>
 	{{ end }}
-	{{ with .content.Params.pdf_preprint }}
-		<li><a href="{{ printf "pdf/%s" . | absURL }}">
-		  preprint.pdf
-		</a></li>
+		{{ with .content.Params.code }}
+		<li><a href="{{ . | absURL }}">code</a></li>
 	{{ end }}
-	{{ with .content.Params.ext_preprint }}
-		<li><a href="{{ . | absURL }}">
-		  preprint.pdf
-		</a></li>
+	{{ with .content.Params.doi }}
+		<li>doi: <a href="{{ printf "https://dx.doi.org/%s" . }}">{{ . }}</a></li>
 	{{ end }}
-	{{ with .content.Params.pdf_abstract }}
-		<li><a href="{{ printf "pdf/%s" . | absURL }}">
-		  abstract.pdf
-		</a></li>
-	{{ end }}
-	{{ with .content.Params.pdf_slides }}
-		<li><a href="{{ printf "pdf/%s" . | absURL }}">
-		  slides.pdf
-		</a></li>
-	{{ end }}
-	{{ with .content.Params.pdf_poster }}
-		<li><a href="{{ printf "pdf/%s" . | absURL }}">
-		  poster.pdf
+	{{ with .content.Params.ext_link }}
+		<li><a href="{{ . | relURL }}">
+		  link
 		</a></li>
 	{{ end }}
 	{{ with .content.Params.arxiv }}
-		<li>arXiv:<a href="{{ printf "https://arxiv.org/abs/%s" . }}">
-		  {{ . }}
-		</a></li>
+		<li>arXiv: <a href="{{ printf "https://arxiv.org/abs/%s" . }}">{{ . }}</a></li>
 	{{ end }}
-	{{ with .content.Params.doi }}
-		<li>doi:<a href="{{ printf "https://dx.doi.org/%s" . }}">
-		  {{ . }}
-		</a></li>
-	{{ end }}
-	{{ with .content.Params.hdl }}
-		<li>hdl:<a href="{{ printf "https://hdl.handle.net/%s" . }}">
-		  {{ . }}
-		</a></li>
-	{{ end }}
-	{{ with .content.Params.code }}
-		<li><a href="{{ . | absURL }}">
-		  code
-		 </a></li>
-	{{ end }}
+<!-- 	{{ with .content.Params.hdl }}
+		<li>hdl: <a href="{{ printf "https://hdl.handle.net/%s" . }}">{{ . }}</a></li>
+	{{ end }} -->
 </ul>
