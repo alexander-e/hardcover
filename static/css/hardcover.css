@@ -68,6 +68,7 @@ ol ol, ul ul, ul ol, ol ul {
 
 li {
   margin: 0;
+  text-align: left;
 }
 
 abbr {
