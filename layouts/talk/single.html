@@ -13,9 +13,9 @@
       <p>
         Presented at the
         {{ if and .Params.event_short .Params.event_link }}
-          <span class="pub-journal">{{.Params.event }} (<a href="{{ .Params.event_link | absURL }}">{{ .Params.event_short }}</a>)</span>,
+          <span class="pub-journal">{{.Params.event }} (<a href="{{ .Params.event_link | absURL }}" target="_blank">{{ .Params.event_short }}</a>)</span>,
         {{ else if .Params.event_link }}
-          <span class="pub-journal"><a href="{{ .Params.event_link }}">{{.Params.event }}</a></span>,
+          <span class="pub-journal"><a href="{{ .Params.event_link | absURL }}" target="_blank">{{.Params.event }}</a></span>,
         {{ else }}
           <span class="pub-journal">{{.Params.event }} ({{ .Params.event_short }})</span>,
         {{ end }}
