@@ -5,7 +5,7 @@
 		</a></li>
 	{{ end }}
 	{{ with .content.Params.ext_pdf }}
-		<li><a href="{{ . | relURL }}">
+		<li><a href="{{ . | relURL }}" target="_blank">
 		  .pdf
 		</a></li>
 	{{ end }}
@@ -15,18 +15,18 @@
 	</a></li>
 	{{ end }}
 		{{ with .content.Params.code }}
-		<li><a href="{{ . | absURL }}">code</a></li>
+		<li><a href="{{ . | absURL }}" target="_blank">code</a></li>
 	{{ end }}
 	{{ with .content.Params.doi }}
-		<li>doi: <a href="{{ printf "https://dx.doi.org/%s" . }}">{{ . }}</a></li>
+		<li>doi: <a href="{{ printf "https://dx.doi.org/%s" . }}" target="_blank">{{ . }}</a></li>
 	{{ end }}
 	{{ with .content.Params.ext_link }}
-		<li><a href="{{ . | relURL }}">
+		<li><a href="{{ . | relURL }}" target="_blank">
 		  link
 		</a></li>
 	{{ end }}
 	{{ with .content.Params.arxiv }}
-		<li>arXiv: <a href="{{ printf "https://arxiv.org/abs/%s" . }}">{{ . }}</a></li>
+		<li>arXiv: <a href="{{ printf "https://arxiv.org/abs/%s" . }}" target="_blank">{{ . }}</a></li>
 	{{ end }}
 <!-- 	{{ with .content.Params.hdl }}
 		<li>hdl: <a href="{{ printf "https://hdl.handle.net/%s" . }}">{{ . }}</a></li>

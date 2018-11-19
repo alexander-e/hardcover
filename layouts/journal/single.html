@@ -8,27 +8,29 @@
 
     <div class="container">
       <h1>{{ .Title }}</h1>
-      {{ with .Params.authors }}<p class="pub-authors">{{ delimit . ", " " and " }}</p>{{ end }}
-
-      <h4>Abstract</h4>
-      <p class="pub-abstract">{{ .Params.abstract | markdownify }}</p>
-
+      {{ with .Params.authors }}
+        <p class="pub-author">{{ delimit . ", " " &amp; " }}</p>
+      {{ end }}
       <p>
         <!-- Journal -->
         In <span class="pub-journal">{{ .Params.publication | markdownify}}</span>,
         <!-- Pagination -->
-        <span class="pub-pages"">{{ .Params.pages | markdownify }}</span>,
+        <span class="pub-pages">{{ .Params.pages | markdownify }}</span>,
         <!-- Date -->
         <span class="pub-date">{{ dateFormat "Jan. 2006" .Date }}</span>.
+        <!-- Note, if any -->
+        {{ with .Params.note }}<span class="pub-note">{{ . | markdownify }}.</span>{{ end }}
       </p>
 
-      <p>{{ partial "publinks.html" (dict "content" . "link_det" false) }}</p>
+      <p>{{ partial "publinks.html" (dict "content" . "link_det" false ) }}</p>
 
-      {{ .Content | markdownify }}
-  </div>
+      {{ .Content }}
+
+    </div>
 
   {{ partial "section_pager.html" . }}
 
   {{ partial "footer.html" . }}
+
 </body>
 </html>
