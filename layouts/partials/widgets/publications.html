@@ -13,7 +13,7 @@
 {{ if $journals_len }}
   <h3 class="post-title"><a href ="{{ "/journal/" | relURL }}">Journal articles</a></h3>
   <ol class="publications">
-    {{ range first $page.Params.max (where $.Data.Pages "Type" "journal") }}
+    {{ range where $.Data.Pages "Type" "journal" }}
       {{ .Render "li_simple" }}
     {{ end }}
     {{ if gt $journals_len $page.Params.max }}
