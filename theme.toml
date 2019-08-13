@@ -1,7 +1,7 @@
 name = "hardcover"
 license = "MIT"
-licenselink = "https://github.com/gcushen/hugo-academic/blob/master/LICENSE.md"
-description = "Minimalist theme for Hugo."
+licenselink = "https://github.com/alexander-e/hardcover/blob/master/LICENSE.md"
+description = "Minimalist academic theme for Hugo."
 homepage = "https://github.com/alexander-e/hardcover"
 tags = ["minimalist",
         "academic",
@@ -10,7 +10,7 @@ tags = ["minimalist",
         "minimal"]
 features = ["academic profile",
             "blog",
-            "publication list"
+            "publication list",
             "contact"]
 min_version = 0.17
 

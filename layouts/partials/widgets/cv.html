@@ -50,6 +50,27 @@
   {{ end }}
 {{ end }}
 
+{{ with $page.Params.service }}
+  <h3>Academic services</h3>
+  {{ if .intro }}
+    <p>{{ .intro | markdownify }}</p>
+  {{ end }}
+  {{ range .services }}
+    <div class=cv-container>
+      <div class="cv-left">
+        <span class="cv-header"><span class="cv-title">{{ .title }}</span></span>
+      </div>
+      <div class="cv-left">
+        <p>{{ .info | markdownify }}</p>
+      </div>
+      </div>
+    </div>
+  {{ end }}
+  {{ if .outro }}
+    <p>{{ .outro | markdownify }}</p>
+  {{ end }}
+{{ end }}
+
 {{ with $page.Params.education }}
   <h3>Education</h3>
   {{ if .intro }}
