@@ -1,16 +1,16 @@
 <footer class="site-footer">
   <p style="text-align:left">&copy; {{ .Site.Params.Author }}
-  {{ if .Site.Params.SocialLinks }}
+  {{ if .Site.Params.socials }}
     <!-- ORCiD logo -->
-  	{{ with .Site.Params.ORCiD }}&middot; <a href="{{ printf "https://orcid.org/%s" . }}" class="social">{{ partial "social/orcid.html" }}</a> {{ end }}
+  	{{ with .Site.Params.socials.ORCiD }}&middot; <a href="{{ printf "https://orcid.org/%s" . }}" class="social">{{ partial "social/orcid.html" }}</a> {{ end }}
     <!-- Researchgate Logo -->
-  	{{ with .Site.Params.ResearchGate }}&middot;  <a href="{{ printf "https://www.researchgate.net/profile/%s" . }}" class="social">{{ partial "social/researchgate.html" }}</a> {{ end }}
+  	{{ with .Site.Params.socials.ResearchGate }}&middot;  <a href="{{ printf "https://www.researchgate.net/profile/%s" . }}" class="social">{{ partial "social/researchgate.html" }}</a> {{ end }}
   	<!-- Google scholar Logo -->
-    {{ with .Site.Params.GoogleScholar }}&middot;  <a href="{{ printf "https://scholar.google.com/citations?user=%s" . }}" class="social">{{ partial "social/googlescholar.html" }}</a> {{ end }}
+    {{ with .Site.Params.socials.GoogleScholar }}&middot;  <a href="{{ printf "https://scholar.google.com/citations?user=%s" . }}" class="social">{{ partial "social/googlescholar.html" }}</a> {{ end }}
     <!-- LinkedIn Logo -->
-    {{ with .Site.Params.LinkedIn }}&middot;  <a href="{{ printf "https://www.linkedin.com/in/%s" . }}" class="social">{{ partial "social/linkedin.html" }}</a> {{ end }}
+    {{ with .Site.Params.socials.LinkedIn }}&middot;  <a href="{{ printf "https://www.linkedin.com/in/%s" . }}" class="social">{{ partial "social/linkedin.html" }}</a> {{ end }}
   	<!-- Github Logo -->
-    {{ with .Site.Params.Github }}&middot;  <a href="{{ printf "https://github.com/%s" . }}" class="social">{{ partial "social/github.html" }}</a> {{ end }}
+    {{ with .Site.Params.socials.Github }}&middot;  <a href="{{ printf "https://github.com/%s" . }}" class="social">{{ partial "social/github.html" }}</a> {{ end }}
   {{ end }}
   </p>
 

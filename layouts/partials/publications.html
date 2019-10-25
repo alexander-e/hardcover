@@ -1,0 +1,8 @@
+{{ range .Sections }}
+  <h3 class="post-title"><a href ="">{{ .Title }}</a></h3>
+  <ol>
+    {{ range .Data.Pages }}
+      {{ .Render "li_simple" }}
+    {{ end }}
+  </ol>
+{{ end }}

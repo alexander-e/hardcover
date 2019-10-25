@@ -1,4 +1,0 @@
-{{ $ := .root }}
-{{ $page := .page }}
-
-{{ with $page.Content }}<p>{{ . | markdownify }}</p>{{ end }}

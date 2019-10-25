@@ -1,12 +1,4 @@
-{{ $page := .page }}
-
-<!-- CV widget -->
-<h2>{{ title $page.Title }}</h2>
-{{ with $page.Params.subtitle }}<p>{{ . | markdownify }}</p>{{ end }}
-
-{{ with $page.Content }}<p>{{ . | markdownify }}</p>{{ end }}
-
-{{ with $page.Params.work }}
+{{ with .Params.work }}
   <h3>Working experience</h3>
   {{ if .intro }}
     <p>{{ .intro | markdownify }}</p>
@@ -27,8 +19,7 @@
   {{ end }}
 {{ end }}
 
-
-{{ with $page.Params.teach }}
+{{ with .Params.teach }}
   <h3>Teaching</h3>
   {{ if .intro }}
     <p>{{ .intro | markdownify }}</p>
@@ -50,7 +41,7 @@
   {{ end }}
 {{ end }}
 
-{{ with $page.Params.service }}
+{{ with .Params.service }}
   <h3>Academic services</h3>
   {{ if .intro }}
     <p>{{ .intro | markdownify }}</p>
@@ -71,7 +62,7 @@
   {{ end }}
 {{ end }}
 
-{{ with $page.Params.education }}
+{{ with .Params.education }}
   <h3>Education</h3>
   {{ if .intro }}
     <p>{{ .intro | markdownify }}</p>

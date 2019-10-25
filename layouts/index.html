@@ -7,15 +7,26 @@
       {{ partial "header.html" . }}
 
       <div class="container">
-        <!-- Widgets -->
-        {{ range $index, $page := where .Data.Pages "Type" "home" }}
-          {{ $params := dict "root" $ "page" $page }}
-          {{ $widget := printf "widgets/%s.html" ( or $page.Params.widget "custom" ) }}
-          <section id="{{ $page.File.BaseFileName }}">
-            {{ partial $widget $params }}
-          </section>
-          {{ partial "totop.html" }}
-        {{ end }}
+        <!-- About me section / content -->
+        {{ .Content | markdownify }}
+        {{ partial "totop.html" }}
+
+        <!-- Publications -->
+        <h2 id="publications">Scientific output</h2>
+        {{ partial "publications.html" . }}
+        {{ partial "totop.html" . }}
+
+        <!-- CV -->
+        <h2 id="cv">Academic CV</h2>
+        {{ partial "cv.html" . }}
+        {{ partial "totop.html" . }}
+
+        <!-- Contact details -->
+        <h2 id="contact">Contact</h2>
+        {{ partial "contact.html" . }}
+        {{ partial "totop.html" . }}
+
+
       </div>
 
       {{ partial "footer.html" . }}
