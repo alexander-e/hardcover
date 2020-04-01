@@ -2,7 +2,7 @@
   <!-- Authors -->
   <span class="pub-authors">{{ with .Params.authors }}{{ delimit . ", " " &amp; "}}</span>{{ end }}.
   <!-- Title -->
-  &ldquo;<span class="pub-title">{{ .Title }}</span>&rdquo;.
+  <span class="pub-title">{{ .Title }}</span>.
   <!-- Note, if any -->
   {{ with .Params.note }}<p class="pub-note">{{ . | markdownify }}.</p>{{ end }}
   <!--- Links -->

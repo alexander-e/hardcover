@@ -2,15 +2,19 @@
   <!-- Authors -->
   {{ with .Params.authors }}<span class="pub-authors">{{ delimit . ", " " &amp; "}}</span>{{ end }}.
   <!-- Title -->
-  &ldquo;<span class="pub-title">{{ .Title }}</span>&rdquo;.
+  <span class="pub-title">{{ .Title }}</span>.
   <!-- Journal -->
-  Presented at the
+  {{ with .Params.pre }}
+    {{ . }}
+  {{ else }}
+    Presented at the
+  {{ end }}
   {{ if and .Params.event_short .Params.event_link }}
     <span class="pub-journal">{{.Params.event }} (<a href="{{ .Params.event_link | absURL }}" target="_blank">{{ .Params.event_short }}</a>)</span>,
   {{ else if .Params.event_link }}
     <span class="pub-journal"><a href="{{ .Params.event_link | absURL }}" target="_blank">{{.Params.event }}</a></span>,
   {{ else }}
-    <span class="pub-journal">{{.Params.event }} ({{ .Params.event_short }})</span>,
+    <span class="pub-journal">{{.Params.event }} {{- with .Params.event_short -}}({{ . }}){{ end }}</span>,
   {{ end }}
   <!-- Date -->
   <span class="pub-date">{{ dateFormat "2/1/2006" .Date }}</span>.
