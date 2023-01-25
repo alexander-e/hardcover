@@ -19,6 +19,31 @@
   {{ end }}
 {{ end }}
 
+{{ with .Params.award }}
+  <h3>Awards</h3>
+  {{ if .intro }}
+    <p>{{ .intro | markdownify }}</p>
+  {{ end }}
+  {{ range .awards }}
+    <div class=cv-container>
+      <div class="cv-left">
+        <span class="cv-header">
+          {{ with .descr }}
+            {{ . | markdownify }}
+          {{ else }}
+            <span class="cv-title">{{ .title }}</span> at {{ .info | markdownify }}
+          {{ end }}
+        </span>
+      </div>
+    </div>
+  {{ end }}
+  {{ if .outro }}
+    <p>{{ .outro | markdownify }}</p>
+  {{ else }}
+    <br />
+  {{ end }}
+{{ end }}
+
 {{ with .Params.teach }}
   <h3>Teaching</h3>
   {{ if .intro }}

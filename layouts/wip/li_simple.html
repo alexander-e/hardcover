@@ -6,7 +6,7 @@
   <!-- Note, if any -->
   {{ with .Params.note }}<p class="pub-note">{{ . | markdownify }}.</p>{{ end }}
   <!--- Links -->
-  {{ if or .Params.link_det .Params.has_links }}
-    {{ partial "publinks.html" (dict "content" . "link_det" .Params.link_det) }}
+  {{ if not .Params.no_links }}
+    {{ partial "publinks.html" (dict "content" . "has_abstract" .Params.has_abstract) }}
   {{ end }}
 </li>

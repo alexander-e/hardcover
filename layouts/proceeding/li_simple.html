@@ -17,5 +17,5 @@
   <!-- Note, if any -->
   {{ with .Params.note }}<p class="pub-note">{{ . | markdownify }}.</p>{{ end }}
   <!-- Links -->
-  {{ partial "publinks.html" (dict "content" . "link_det" true ) }}
+  {{ partial "publinks.html" (dict "content" . "has_abstract" true ) }}
 </li>

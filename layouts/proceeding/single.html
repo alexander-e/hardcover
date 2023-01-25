@@ -27,7 +27,7 @@
       <!-- Note, if any -->
       {{ with .Params.note }}<span class="pub-note">{{ . | markdownify }}.</span>{{ end }}
 
-      <p>{{ partial "publinks.html" (dict "content" . "link_det" false ) }}</p>
+      <p>{{ partial "publinks.html" (dict "content" . "has_abstract" false ) }}</p>
 
       {{ .Content }}
 

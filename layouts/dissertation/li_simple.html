@@ -3,12 +3,12 @@
   {{ with .Params.authors }}<span class="pub-authors">{{ delimit . ", " " &amp; "}}</span>{{ end }}.
   <!-- Title -->
   <span class="pub-title">{{ .Title }}</span>.
-  <!-- Journal -->
-  In <span class="pub-journal">{{ .Params.publication }}</span>,
-  <!-- Pagination -->
-  <span class="pub-pages">{{ .Params.pages | markdownify }}</span>,
+  <!-- Type -->
+  <span class="pub-diss">{{ .Params.diss_type }}</span>,
+  <!-- Institution -->
+  <span class="pub-journal">{{ .Params.institution | markdownify }}</span>,
   <!-- Date -->
-  <span class="pub-date">{{ dateFormat "Jan. 2006" .Date }}</span>.
+  <span class="pub-date">{{ dateFormat "2 Jan. 2006" .Date }}</span>.
   <!-- Note, if any -->
   {{ with .Params.note }}<p class="pub-note">{{ . | markdownify }}.</p>{{ end }}
   <!-- Links -->

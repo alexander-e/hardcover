@@ -17,9 +17,9 @@
     <span class="pub-journal">{{.Params.event }} {{- with .Params.event_short -}}({{ . }}){{ end }}</span>,
   {{ end }}
   <!-- Date -->
-  <span class="pub-date">{{ dateFormat "2/1/2006" .Date }}</span>.
+  <span class="pub-date">{{ dateFormat "2 Jan. 2006" .Date }}</span>.
   <!-- Note, if any -->
   {{ with .Params.note }}<span class="pub-note">{{ . | markdownify }}.</span>{{ end }}
   <!--- Links -->
-  {{ partial "publinks.html" (dict "content" . "link_det" true ) }}
+  {{ partial "publinks.html" (dict "content" . "has_abstract" .Params.has_abstract ) }}
 </li>

@@ -1,7 +1,7 @@
 <ul class="pub-links">
-	{{ if .link_det }}
+	{{ if .has_abstract }}
 		<li><a href="{{ .content.Permalink }}">
-			details
+			abstract
 		</a></li>
 	{{ end }}
 	{{ with .content.Params.ext_pdf }}
