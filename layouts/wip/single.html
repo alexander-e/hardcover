@@ -8,7 +8,7 @@
 
     <div class="container">
       <h1>{{ .Title }}</h1>
-      {{ with .Params.authors }}<p class="pub-authors">{{ delimit . ", " " &amp; " }}</p>{{ end }}
+      {{ with .Params.authors }}<p class="pub-authors">{{ delimit . ", " " & " }}</p>{{ end }}
 
       {{ if not .Params.no_links }}
       	<p>{{ partial "publinks.html" (dict "content" . "has_abstract" false) }}</p>

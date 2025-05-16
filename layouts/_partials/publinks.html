@@ -28,6 +28,9 @@
 	{{ with .content.Params.arxiv }}
 		<li>arXiv: <a href="{{ printf "https://arxiv.org/abs/%s" . }}" target="_blank">{{ . }}</a></li>
 	{{ end }}
+	{{ with .content.Params.youtube }}
+		<li><a href="{{ printf "https://www.youtube.com/watch?v=%s" . }}" target="_blank">YouTube recording</a></li>
+	{{ end }}
 <!-- 	{{ with .content.Params.hdl }}
 		<li>hdl: <a href="{{ printf "https://hdl.handle.net/%s" . }}">{{ . }}</a></li>
 	{{ end }} -->

@@ -18,7 +18,12 @@
 
         <!-- CV -->
         <h2 id="cv">Academic CV</h2>
-        {{ partial "cv.html" . }}
+        {{ range .Params.cv }}
+          <h3>{{ .title }}</h3>
+          {{ $context := transform.Unmarshal (resources.Get .file) }}
+          {{ partial .partial $context }}
+          <br>
+        {{ end }}
         {{ partial "totop.html" . }}
 
         <!-- Contact details -->
