@@ -12,7 +12,7 @@ features = ["academic profile",
             "blog",
             "publication list",
             "contact"]
-min_version = 0.17
+min_version = 0.146
 
 [author]
 name = "Alexander Erreygers"
