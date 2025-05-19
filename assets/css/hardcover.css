@@ -219,6 +219,17 @@ li.next {
   text-align: right;
 }
 
+p.seeall {
+  text-align: right;
+}
+p.seeall a {
+  color: #074eb2;
+  border: none;
+}
+p.seeall a:hover {
+  color: #08b26c;
+}
+
 h3.post-title a {
   border: none;
 }

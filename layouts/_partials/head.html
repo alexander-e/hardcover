@@ -11,7 +11,9 @@
   {{ if .Site.Params.fancyfont }}
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,700">
   {{ end }}
-  <link rel="stylesheet" href="{{ .Site.BaseURL }}css/hardcover.css">
+  {{ $css := resources.Get "css/hardcover.css" }}
+  {{ $style := $css | minify }}
+  <link rel="stylesheet" href="{{ $style.Permalink }}">
 </head>
 
 {{ with .Site.Params.goatcounter }}
