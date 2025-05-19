@@ -1,8 +1,14 @@
 {{ range.Sections }}
   <h3 class="post-title"><a href ="{{ .Permalink }}">{{ .Title }}</a></h3>
   <ol>
-    {{ range .Data.Pages }}
+    {{ $toshow := int (math.Min (len .Data.Pages) site.Params.maxPubs) }}
+    <!-- Hier mist functionaliteit om enkel de eeste maxPubs te laten zien. -->
+
+    {{ range .Data.Pages.Limit $toshow }}
       {{ .Render "li_simple" }}
     {{ end }}
   </ol>
+  {{ if gt (len .Data.Pages) site.Params.maxpubs }}
+    <p class="seeall"><a href="{{ .Permalink }}">See all &RightArrow;</a></p>
+  {{ end }}
 {{ end }}
