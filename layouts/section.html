@@ -9,10 +9,10 @@
 
       {{ partial "header.html" . }}
 
-      <h1>Articles in conference proceedings</h1>
+      <h1>{{ .Title }}</h1>
 
       <ol>
-      {{ range where .Data.Pages "Type" "proceeding" }}
+      {{ range .Pages }}
         {{ .Render "li_simple" }}
       {{ end }}
       </ol>

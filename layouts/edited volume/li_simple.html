@@ -1,0 +1,24 @@
+<li>
+  {{ $page := . }}
+  <!-- Title -->
+  <span class="pub-title">{{ .Title | markdownify }}</span>.
+  <!-- editors -->
+  {{ with .Params.editors }}
+    <span class="pub-editors">
+      Edited by {{ delimit . ", "  " & "}}.
+    </span>
+  {{ end }}
+  {{ with .Params.series}}
+    <span class="pub-journal">{{ . }}</span>{{ with $.Params.volume }} vol. {{ . }}{{ end }}
+  {{ end }},
+  <!-- Publisher -->
+  {{ with .Params.publisher }}
+    <span class="pub-publisher">{{ . }}</span>,
+  {{ end }}
+  <!-- Date -->
+  <span class="pub-date">{{ dateFormat "Jan. 2006" .Date }}</span>.
+  <!-- Note, if any -->
+  {{ with .Params.note }}<p class="pub-note">{{ . | markdownify }}.</p>{{ end }}
+  <!-- Links -->
+  {{ partial "publinks.html" (dict "content" . "has_abstract" false ) }}
+</li>
